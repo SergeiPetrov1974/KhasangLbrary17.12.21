@@ -7,7 +7,7 @@ public class Menu {
         int chooseAction = 0;
         System.out.println("Сейчас в каталоге книг - " + library.getCountBook());
         for (int i = 0; i < 10; i++) {
-            System.out.println("Что будем делать: 0-Добавить книгу; 1-Найти книгу; 2-Удалить книгу");
+            System.out.println("Что будем делать: 0-Добавить книгу; 1-Найти книгу; 2-Удалить книгу; 3 - Закрыть программу;");
             chooseAction = selectAction(reader);
             switch (chooseAction) {
                 case 0:
@@ -28,22 +28,28 @@ public class Menu {
                         System.out.println("В каталоге осталось книг - " + library.getCountBook());
                     } else {
                         System.out.println("В каталоге пусто. Нет книг для удаления");
-                        break;
                     }
-                default:
-                    return;
+
+
+                case 3:
+                    if (chooseAction == 3) {
+                        System.out.println("Работа программы завершена ");
+                        System.exit(0);
+
+                    }
             }
         }
     }
+
 
     static int selectAction(Reader reader) {
         int action;
         do {
             action = reader.getAnswer();
-            if (action != 0 & action != 1 & action != 2) {
-                System.out.println("Укажите что нужно сделать: 0-Добавить книгу; 1-Найти книгу по названию" + " 2-Удалить книгу");
+            if (action != 0 & action != 1 & action != 2 & action != 3) {
+                System.out.println("Укажите что нужно сделать: 0-Добавить книгу; 1-Найти книгу по названию" + " 2-Удалить книгу" + " 3 - Закрыть программу");
             }
-        } while (action != 0 & action != 1 & action != 2);
+        } while (action != 0 & action != 1 & action != 2 & action != 3);
         return action;
     }
 
